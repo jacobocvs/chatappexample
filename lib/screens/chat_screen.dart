@@ -18,7 +18,12 @@ class ChatScreen extends StatelessWidget {
         onPressed: () {
           FirebaseFirestore.instance
               .collection('fSmeMzpoBjA8Ff8YxNe2')
-              .snapshots().listen((event) {print(event);});
+              .snapshots()
+              .listen((event) {
+            event.docs.forEach((element) {
+              print(element['text']);
+            });
+          });
         },
       ),
     );
