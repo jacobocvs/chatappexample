@@ -1,6 +1,7 @@
 import 'package:chatappexample/screens/chat_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import './screens/auth_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,9 +17,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SmartCop',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
+        primaryColor: const Color.fromRGBO(28, 28, 36, 1),
+        buttonTheme: ButtonTheme.of(context).copyWith(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+        )
       ),
-      home: const ChatScreen(),
+      home: AuthScreen(),
     );
   }
 }
